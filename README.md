@@ -30,28 +30,26 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`aem hello [FILE]`](#aem-hello-file)
+* [`aem deploy [PACKAGE] [HOST]`](#aem-deploy-package-host)
 * [`aem help [COMMAND]`](#aem-help-command)
 
-## `aem hello [FILE]`
+## `aem deploy [PACKAGE] [HOST]`
 
-describe the command here
+Deploys an AEM package
 
 ```
 USAGE
-  $ aem hello [FILE]
+  $ aem deploy [PACKAGE] [HOST]
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help  show CLI help
 
 EXAMPLE
-  $ aem hello
-  hello world from ./src/hello.ts!
+  $ aem deploy we.retail.all-3.0.0.zip
+  SUCCESS | 'we.retail.all-3.0.0.zip' has been installed on 'localhost'
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/sfawaz/aem/blob/v0.0.0/src/commands/hello.ts)_
+_See code: [src/commands/deploy.ts](https://github.com/sfawaz/aem/blob/v0.0.0/src/commands/deploy.ts)_
 
 ## `aem help [COMMAND]`
 
