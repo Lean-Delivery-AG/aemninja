@@ -24,8 +24,9 @@ ${COMMAND_OUTPUT_PREFIX_SUCCESS} 'we.retail.all-3.0.0.zip' has been installed on
 
     if (args.package && args.host) {
       this.log(`${COMMAND_OUTPUT_PREFIX_SUCCESS} ${args.package} has been installed on ${args.host}`)
-    } else {
-      this.log(`${COMMAND_OUTPUT_PREFIX_USAGE} ${args.package} $ aem deploy we.retail.all-3.0.0.zip`)
+    }
+    else {
+      this.log(`${COMMAND_OUTPUT_PREFIX_USAGE} $ aem deploy we.retail.all-3.0.0.zip`)
     }
   }
 }
