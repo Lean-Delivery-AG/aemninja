@@ -1,4 +1,3 @@
 {
   "extends": "@oclif/tslint",
-  "no-inferrable-types": true,
 }
