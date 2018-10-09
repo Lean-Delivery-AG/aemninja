@@ -1,5 +1,4 @@
 ---
-version: 2
 jobs:
   node-latest: &test
     docker:
@@ -43,7 +42,6 @@ jobs:
             - /usr/local/share/.config/yarn
 
 workflows:
-  version: 2
   "aem":
     jobs:
       - node-latest
