@@ -30,26 +30,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`aem deploy [PACKAGE] [HOST]`](#aem-deploy-package-host)
 * [`aem help [COMMAND]`](#aem-help-command)
-
-## `aem deploy [PACKAGE] [HOST]`
-
-Deploys an AEM package
-
-```
-USAGE
-  $ aem deploy [PACKAGE] [HOST]
-
-OPTIONS
-  -h, --help  show CLI help
-
-EXAMPLE
-  $ aem deploy we.retail.all-3.0.0.zip
-  SUCCESS | 'we.retail.all-3.0.0.zip' has been installed on 'localhost'
-```
-
-_See code: [src/commands/deploy.ts](https://github.com/sfawaz/aem/blob/v0.0.0/src/commands/deploy.ts)_
 
 ## `aem help [COMMAND]`
 
