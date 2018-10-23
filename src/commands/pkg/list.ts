@@ -1,7 +1,7 @@
 import {Command, flags} from '@oclif/command'
 
 export default class PkgList extends Command {
-  static description = 'describe the command here'
+  static description = 'List all AEM packages'
 
   static flags = {
     help: flags.help({char: 'h'}),

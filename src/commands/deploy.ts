@@ -83,7 +83,7 @@ export default class Deploy extends Command {
 
 
     } else {
-      this.log('$ aem deploy we.retail.all-3.0.0.zip')
+      this.log(`aemninja deploy ${chalk.underline('package')} [url]`)
     }
   }
 }

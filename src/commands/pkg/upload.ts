@@ -7,7 +7,7 @@ const signale = require('signale')
 const chalk = require('chalk')
 
 export default class PkgUpload extends Command {
-  static description = 'Uploads an AEM package. Default: localhost:4502'
+  static description = 'Upload an AEM package. Default: localhost:4502'
   static args = [
     {name: 'package'},
     {name: 'url'},
@@ -94,7 +94,7 @@ $ aem pkg:upload we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.am
 
 
     } else {
-      this.log('$ aem deploy we.retail.all-3.0.0.zip')
+      this.log(`aemninja pkg:upload ${chalk.underline('package')} [url]`)
     }
   }
 }
