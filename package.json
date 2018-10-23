@@ -11,6 +11,8 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
+    "@types/form-data": "^2.2.1",
+    "form-data": "^2.3.3",
     "tslib": "^1"
   },
   "devDependencies": {
