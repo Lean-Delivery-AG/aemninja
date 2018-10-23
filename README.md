@@ -1,14 +1,14 @@
-aem
+aemninja
 ===
 
-The aem CLI let&#39;s you deploy Adobe Experience Manager packages in a very pleasant way.
+The aemninja CLI let&#39;s you deploy Adobe Experience Manager packages in a very pleasant way.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/aem.svg)](https://npmjs.org/package/aem)
-[![CircleCI](https://circleci.com/gh/sfawaz/aem/tree/master.svg?style=shield)](https://circleci.com/gh/sfawaz/aem/tree/master)
-[![Codecov](https://codecov.io/gh/sfawaz/aem/branch/master/graph/badge.svg)](https://codecov.io/gh/sfawaz/aem)
-[![Downloads/week](https://img.shields.io/npm/dw/aem.svg)](https://npmjs.org/package/aem)
-[![License](https://img.shields.io/npm/l/aem.svg)](https://github.com/sfawaz/aem/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/aemninja.svg)](https://npmjs.org/package/aemninja)
+[![CircleCI](https://circleci.com/gh/sfawaz/aemninja/tree/master.svg?style=shield)](https://circleci.com/gh/sfawaz/aemninja/tree/master)
+[![Codecov](https://codecov.io/gh/sfawaz/aemninja/branch/master/graph/badge.svg)](https://codecov.io/gh/sfawaz/aemninja)
+[![Downloads/week](https://img.shields.io/npm/dw/aemninja.svg)](https://npmjs.org/package/aemninja)
+[![License](https://img.shields.io/npm/l/aemninja.svg)](https://github.com/sfawaz/aemninja/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
@@ -17,28 +17,28 @@ The aem CLI let&#39;s you deploy Adobe Experience Manager packages in a very ple
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g aem
-$ aem COMMAND
+$ npm install -g aemninja
+$ aemninja COMMAND
 running command...
-$ aem (-v|--version|version)
-aem/0.0.0 darwin-x64 node-v10.10.0
-$ aem --help [COMMAND]
+$ aemninja (-v|--version|version)
+aemninja/0.0.0 darwin-x64 node-v10.10.0
+$ aemninja --help [COMMAND]
 USAGE
-  $ aem COMMAND
+  $ aemninja COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`aem help [COMMAND]`](#aem-help-command)
+* [`aemninja help [COMMAND]`](#aemninja-help-command)
 
-## `aem help [COMMAND]`
+## `aemninja help [COMMAND]`
 
-display help for aem
+display help for aemninja
 
 ```
 USAGE
-  $ aem help [COMMAND]
+  $ aemninja help [COMMAND]
 
 ARGUMENTS
   COMMAND  command to show help for

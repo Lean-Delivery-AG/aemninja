@@ -1,12 +1,12 @@
 {
-  "name": "aem",
-  "description": "The aem CLI let's you deploy Adobe Experience Manager packages in a very pleasant way.",
+  "name": "aemninja",
+  "description": "The aemninja CLI let's you deploy Adobe Experience Manager packages in a very pleasant way.",
   "version": "0.0.0",
   "author": "Samuel Fawaz",
   "bin": {
-    "aem": "./bin/run"
+    "aemninja": "./bin/run"
   },
-  "bugs": "https://github.com/sfawaz/aem/issues",
+  "bugs": "https://github.com/sfawaz/aemninja/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -37,7 +37,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/sfawaz/aem",
+  "homepage": "https://github.com/sfawaz/aemninja",
   "keywords": [
     "oclif"
   ],
@@ -45,12 +45,12 @@
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "aem",
+    "bin": "aemninja",
     "plugins": [
       "@oclif/plugin-help"
     ]
   },
-  "repository": "sfawaz/aem",
+  "repository": "sfawaz/aemninja",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tslint -p test -t stylish",
