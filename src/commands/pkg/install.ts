@@ -4,8 +4,8 @@ import * as fs from 'fs'
 import * as http from 'http'
 import * as notifier from 'node-notifier'
 
-import MESSAGES from '../../lib/messages'
-import write from '../../lib/write'
+import * as MESSAGES from '../../lib/messages'
+import * as write from '../../lib/write'
 
 export default class PkgInstall extends Command {
   static description = 'Uploads & Installs an AEM package. Default: localhost:4502'
