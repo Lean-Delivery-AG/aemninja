@@ -5,15 +5,15 @@ describe('deploy', () => {
     .stdout()
     .command(['deploy'])
     .it('runs deploy', ctx => {
-      expect(ctx.stdout).to.contain('USAGE')
+      expect(ctx.stdout).to.contain('aemninja deploy package [url]')
     })
 
-  test
-    .stdout()
-    .command(['deploy', 'we.retail.all-3.0.0', 'localhost'])
-    .it('runs deploy we.retail.all-3.0.0 localhost', ctx => {
-      expect(ctx.stdout).to.contain('SUCCESS')
-      expect(ctx.stdout).to.contain('we.retail.all-3.0.0')
-      expect(ctx.stdout).to.contain('localhost')
-    })
+  // test
+  //   .stdout()
+  //   .command(['deploy', 'test/test-data/core.wcm.components.all-2.2.0.zip', 'localhost'])
+  //   .it('runs deploy core.wcm.components.all-2.2.0.zip localhost', ctx => {
+  //     expect(ctx.stdout).to.contain('success')
+  //     expect(ctx.stdout).to.contain('core.wcm.components.all-2.2.0.zip')
+  //     expect(ctx.stdout).to.contain('localhost')
+  //   })
 })

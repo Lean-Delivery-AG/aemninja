@@ -3,6 +3,8 @@ import * as FormData from 'form-data'
 import * as fs from 'fs'
 import * as http from 'http'
 
+import * as write from '../lib/write'
+
 export default class Deploy extends Command {
   static description = 'Deploys an AEM package'
   static args = [
@@ -27,12 +29,6 @@ export default class Deploy extends Command {
 
     if (args.package) {
       this.log(`installing ${args.package} on ${url}`)
-
-
-
-
-
-
 
       // Upload a package withouth installing
       let form = new FormData()
@@ -64,26 +60,14 @@ export default class Deploy extends Command {
         })
       })
 
-      query.on('error', e => {
+      query.on('error', (e: any) => {
         write.error(e)
       })
 
       form.pipe(query)
 
-
-
-
-
-
-
-
-
-
-
-
-
     } else {
-      this.log(`aemninja deploy ${chalk.underline('package')} [url]`)
+      this.log(`aemninja deploy ${write.underline('package')} [url]`)
     }
   }
 }

@@ -3,8 +3,9 @@ import * as FormData from 'form-data'
 import * as fs from 'fs'
 import * as http from 'http'
 import * as notifier from 'node-notifier'
-import write from '../../lib/write'
+
 import MESSAGES from '../../lib/messages'
+import write from '../../lib/write'
 
 export default class PkgInstall extends Command {
   static description = 'Uploads & Installs an AEM package. Default: localhost:4502'
@@ -43,7 +44,7 @@ $ aem pkg:install we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.a
 
       form.append('file', fs.createReadStream(pkg))
       form.append('install', 'true')
- 
+
       let hostname
       let port
       if (url.indexOf(':') > -1) {
@@ -52,7 +53,7 @@ $ aem pkg:install we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.a
         port = host_and_port[1]
       }
 
-      let query = http.request({
+      const options = {
         auth: 'admin:admin',
         hostname,
         port,
@@ -60,9 +61,11 @@ $ aem pkg:install we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.a
         method: 'POST',
         headers: form.getHeaders(),
         name: 'core.wcm.components.all',
-      }, res => {
+      }
+
+      let query = http.request(options, (res: any) => {
         let data = ''
-        res.on('data', chunk => {
+        res.on('data', (chunk: any) => {
           data += chunk.toString('utf8')
         })
         res.on('end', () => {
@@ -70,35 +73,24 @@ $ aem pkg:install we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.a
           notifier.notify({
             title: 'SUCCESS',
             message: `${args.package} installed on ${url}`
-          })      
+          })
         })
       })
 
-      query.on('error', e => {
+      query.on('error', (e: any) => {
         switch (e.errno) {
         case 'ECONNREFUSED':
           write.error(MESSAGES.CONNECTION_REFUSED(url))
           break
         case 'EISDIR':
           write.error(`This is a directory. Is this really a package '${args.package}'?`)
+          break
         default:
           write.error(e)
         }
       })
 
       form.pipe(query)
-
-
-
-
-
-
-
-
-
-
-
-
 
     } else {
       this.log('aemninja pkg:install [PACKAGE] [URL]')

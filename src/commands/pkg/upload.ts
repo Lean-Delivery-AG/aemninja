@@ -2,10 +2,9 @@ import {Command, flags} from '@oclif/command'
 import * as FormData from 'form-data'
 import * as fs from 'fs'
 import * as http from 'http'
-import write from '../../lib/write'
-import MESSAGES from '../../lib/messages'
 
-import chalk from 'chalk'
+import * as MESSAGES from '../../lib/messages'
+import * as write from '../../lib/write'
 
 export default class PkgUpload extends Command {
   static description = 'Upload an AEM package. Default: localhost:4502'
@@ -69,30 +68,18 @@ $ aem pkg:upload we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.am
         })
       })
 
-      query.on('error', e => {
+      query.on('error', (e: any) => {
         switch (e.errno) {
-          case 'ECONNREFUSED':
+        case 'ECONNREFUSED':
           write.error(MESSAGES.CONNECTION_REFUSED(url))
           break
-        
-          default:
+
+        default:
           write.error(e)
         }
       })
 
       form.pipe(query)
-
-
-
-
-
-
-
-
-
-
-
-
 
     } else {
       this.log(`aemninja pkg:upload ${write.underline('package')} [url]`)

@@ -1,20 +1,18 @@
-const signale = require('signale')
-const chalk = require('chalk')
+import chalk from 'chalk'
+import * as signale from 'signale'
 
-export default class Out {
-  static info(message:string) {
-    signale.info(chalk.blue(message))
-  }
+export function info(message: string) {
+  signale.info(chalk.blue(message))
+}
 
-  static success(message:string) {
-    signale.success(chalk.green(message))
-  }
+export function success(message: string) {
+  signale.success(chalk.green(message))
+}
 
-  static error(message:string) {
-    signale.error(chalk.red(message))
-  }
+export function error(message: string) {
+  signale.error(chalk.red(message))
+}
 
-  static underline(message:string){
-    return chalk.underline(message)
-  }
+export function underline(message: string) {
+  return chalk.underline(message)
 }
