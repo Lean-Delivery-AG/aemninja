@@ -3,9 +3,8 @@ import * as FormData from 'form-data'
 import * as fs from 'fs'
 import * as http from 'http'
 import * as notifier from 'node-notifier'
-
-const signale = require('signale')
-const chalk = require('chalk')
+import out from '../../lib/out'
+import MESSAGES from '../../lib/messages'
 
 export default class PkgInstall extends Command {
   static description = 'Uploads & Installs an AEM package. Default: localhost:4502'
@@ -39,7 +38,7 @@ $ aem pkg:install we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.a
     let pkg = args.package
 
     if (args.package) {
-      signale.info(chalk.blue(`installing ${args.package} to '${url}'`))
+      out.info(`installing ${args.package} to '${url}'`)
       let form = new FormData()
 
       form.append('file', fs.createReadStream(pkg))
@@ -67,7 +66,7 @@ $ aem pkg:install we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.a
           data += chunk.toString('utf8')
         })
         res.on('end', () => {
-          signale.success(chalk.green(data))
+          out.success(data)
           notifier.notify({
             title: 'SUCCESS',
             message: `${args.package} installed on ${url}`
@@ -78,12 +77,12 @@ $ aem pkg:install we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.a
       query.on('error', e => {
         switch (e.errno) {
         case 'ECONNREFUSED':
-          signale.error(chalk.red(`Connection Refused. Is your AEM instance running on '${url}'?`))
+          out.error(MESSAGES.CONNECTION_REFUSED(url))
           break
         case 'EISDIR':
-          signale.error(chalk.red(`This is a directory. Is this really a package '${args.package}'?`))
+          out.error(`This is a directory. Is this really a package '${args.package}'?`)
         default:
-          console.log(e)
+          out.error(e)
         }
       })
 

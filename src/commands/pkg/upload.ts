@@ -2,9 +2,10 @@ import {Command, flags} from '@oclif/command'
 import * as FormData from 'form-data'
 import * as fs from 'fs'
 import * as http from 'http'
+import out from '../../lib/out'
+import MESSAGES from '../../lib/messages'
 
-const signale = require('signale')
-const chalk = require('chalk')
+import chalk from 'chalk'
 
 export default class PkgUpload extends Command {
   static description = 'Upload an AEM package. Default: localhost:4502'
@@ -38,7 +39,7 @@ $ aem pkg:upload we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.am
     let pkg = args.package
 
     if (args.package) {
-      signale.info(chalk.blue(`uploading ${args.package} to '${url}'`))
+      out.info(`uploading ${args.package} to '${url}'`)
       let form = new FormData()
 
       form.append('file', fs.createReadStream(pkg))
@@ -64,18 +65,18 @@ $ aem pkg:upload we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.am
           data += chunk.toString('utf8')
         })
         res.on('end', () => {
-          signale.success(chalk.green(data))
+          out.success(data)
         })
       })
 
       query.on('error', e => {
         switch (e.errno) {
           case 'ECONNREFUSED':
-          signale.error(chalk.red(`Connection Refused. Is your AEM instance running on '${args.url}'?`))
+          out.error(MESSAGES.CONNECTION_REFUSED(url))
           break
         
           default:
-          console.log(e)
+          out.error(e)
         }
       })
 
@@ -94,7 +95,7 @@ $ aem pkg:upload we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.am
 
 
     } else {
-      this.log(`aemninja pkg:upload ${chalk.underline('package')} [url]`)
+      this.log(`aemninja pkg:upload ${out.underline('package')} [url]`)
     }
   }
 }
