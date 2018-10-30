@@ -2,7 +2,7 @@ import {Command, flags} from '@oclif/command'
 import * as FormData from 'form-data'
 import * as fs from 'fs'
 import * as http from 'http'
-import out from '../../lib/out'
+import write from '../../lib/write'
 import MESSAGES from '../../lib/messages'
 
 import chalk from 'chalk'
@@ -39,7 +39,7 @@ $ aem pkg:upload we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.am
     let pkg = args.package
 
     if (args.package) {
-      out.info(`uploading ${args.package} to '${url}'`)
+      write.info(`uploading ${args.package} to '${url}'`)
       let form = new FormData()
 
       form.append('file', fs.createReadStream(pkg))
@@ -65,18 +65,18 @@ $ aem pkg:upload we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.am
           data += chunk.toString('utf8')
         })
         res.on('end', () => {
-          out.success(data)
+          write.success(data)
         })
       })
 
       query.on('error', e => {
         switch (e.errno) {
           case 'ECONNREFUSED':
-          out.error(MESSAGES.CONNECTION_REFUSED(url))
+          write.error(MESSAGES.CONNECTION_REFUSED(url))
           break
         
           default:
-          out.error(e)
+          write.error(e)
         }
       })
 
@@ -95,7 +95,7 @@ $ aem pkg:upload we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.am
 
 
     } else {
-      this.log(`aemninja pkg:upload ${out.underline('package')} [url]`)
+      this.log(`aemninja pkg:upload ${write.underline('package')} [url]`)
     }
   }
 }

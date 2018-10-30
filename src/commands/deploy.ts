@@ -60,12 +60,12 @@ export default class Deploy extends Command {
           data += chunk.toString('utf8')
         })
         res.on('end', () => {
-          out.success(data)
+          write.success(data)
         })
       })
 
       query.on('error', e => {
-        out.error(e)
+        write.error(e)
       })
 
       form.pipe(query)
