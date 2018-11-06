@@ -1,7 +1,7 @@
 aemninja
 ===
 
-The aemninja CLI let&#39;s you deploy Adobe Experience Manager packages in a very pleasant way.
+Deploy Adobe Experience Manager packages like a Ninja.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/aemninja.svg)](https://npmjs.org/package/aemninja)
