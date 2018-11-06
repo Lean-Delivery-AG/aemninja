@@ -32,14 +32,14 @@ USAGE
 <!-- commands -->
 * [`aemninja deploy [PACKAGE] [URL]`](#aemninja-deploy-package-url)
 * [`aemninja help [COMMAND]`](#aemninja-help-command)
-* [`aemninja pkg:install [FILE]`](#aemninja-pkginstall-file)
+* [`aemninja pkg:install [PACKAGE] [URL]`](#aemninja-pkginstall-package-url)
 * [`aemninja pkg:list [FILE]`](#aemninja-pkglist-file)
 * [`aemninja pkg:uninstall [FILE]`](#aemninja-pkguninstall-file)
 * [`aemninja pkg:upload [PACKAGE] [URL]`](#aemninja-pkgupload-package-url)
 
 ## `aemninja deploy [PACKAGE] [URL]`
 
-Deploys an AEM package
+deploy AEM package to a server
 
 ```
 USAGE
@@ -72,25 +72,36 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.2/src/commands/help.ts)_
 
-## `aemninja pkg:install [FILE]`
+## `aemninja pkg:install [PACKAGE] [URL]`
 
-describe the command here
+Uploads & Installs an AEM package. Default: localhost:4502
 
 ```
 USAGE
-  $ aemninja pkg:install [FILE]
+  $ aemninja pkg:install [PACKAGE] [URL]
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help  show CLI help
+
+EXAMPLE
+  # upload & install to local AEM author instance (Default: http://localhost:4502)
+  $ aem pkg:install we.retail.all-3.0.0.zip
+
+  # upload & install to local AEM publish instance
+  $ aem pkg:install we.retail.all-3.0.0.zip http://localhost:4503
+
+  # upload & install to remote AEM author instance running in the Azure Cloud
+  $ aem pkg:install we.retail.all-3.0.0.zip https://weretail-author-westeurope.cloudapp.azure.com:4503
+
+  # upload & install to remote AEM publish instance running in on Amazon EC2
+  $ aem pkg:install we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.amazonaws.com:4503
 ```
 
 _See code: [src/commands/pkg/install.ts](https://github.com/sfawaz/aemninja/blob/v0.0.0/src/commands/pkg/install.ts)_
 
 ## `aemninja pkg:list [FILE]`
 
-describe the command here
+List all AEM packages
 
 ```
 USAGE
@@ -106,7 +117,7 @@ _See code: [src/commands/pkg/list.ts](https://github.com/sfawaz/aemninja/blob/v0
 
 ## `aemninja pkg:uninstall [FILE]`
 
-describe the command here
+Uninstall an AEM package. Default: localhost:4502
 
 ```
 USAGE
@@ -122,7 +133,7 @@ _See code: [src/commands/pkg/uninstall.ts](https://github.com/sfawaz/aemninja/bl
 
 ## `aemninja pkg:upload [PACKAGE] [URL]`
 
-Deploys an AEM package
+Upload an AEM package without installing it. Default: localhost:4502
 
 ```
 USAGE
@@ -132,8 +143,17 @@ OPTIONS
   -h, --help  show CLI help
 
 EXAMPLE
-  $ aem deploy we.retail.all-3.0.0.zip
-  'we.retail.all-3.0.0.zip' has been installed on 'localhost'
+  # upload to local AEM author instance (Default: http://localhost:4502)
+  $ aem pkg:upload we.retail.all-3.0.0.zip
+
+  # upload to local AEM publish instance
+  $ aem pkg:upload we.retail.all-3.0.0.zip http://localhost:4503
+
+  # upload to remote AEM author instance running in the Azure Cloud
+  $ aem pkg:upload we.retail.all-3.0.0.zip https://weretail-author-westeurope.cloudapp.azure.com:4503
+
+  # upload to remote AEM publish instance running in on Amazon EC2
+  $ aem pkg:upload we.retail.all-3.0.0.zip https://ec2-52-204-122-132.compute-1.amazonaws.com:4503
 ```
 
 _See code: [src/commands/pkg/upload.ts](https://github.com/sfawaz/aemninja/blob/v0.0.0/src/commands/pkg/upload.ts)_

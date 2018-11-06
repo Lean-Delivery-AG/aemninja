@@ -1,6 +1,6 @@
 {
   "name": "aemninja",
-  "description": "The aemninja CLI let's you deploy Adobe Experience Manager packages in a very pleasant way.",
+  "description": "Deploy Adobe Experience Manager packages like a Ninja.",
   "version": "0.0.0",
   "author": "Samuel Fawaz",
   "bin": {
