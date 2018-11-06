@@ -133,7 +133,7 @@ _See code: [src/commands/pkg/uninstall.ts](https://github.com/sfawaz/aemninja/bl
 
 ## `aemninja pkg:upload [PACKAGE] [URL]`
 
-Upload an AEM package without installing it. Default: localhost:4502
+upload AEM package to a server without installing it. Default: localhost:4502
 
 ```
 USAGE
