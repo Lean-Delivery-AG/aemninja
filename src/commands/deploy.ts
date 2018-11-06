@@ -6,7 +6,7 @@ import * as http from 'http'
 import * as write from '../lib/write'
 
 export default class Deploy extends Command {
-  static description = 'Deploys an AEM package'
+  static description = 'deploy AEM package to a server'
   static args = [
     {name: 'package'},
     {name: 'url'},

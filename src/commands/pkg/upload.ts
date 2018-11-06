@@ -7,7 +7,7 @@ import * as MESSAGES from '../../lib/messages'
 import * as write from '../../lib/write'
 
 export default class PkgUpload extends Command {
-  static description = 'Upload an AEM package. Default: localhost:4502'
+  static description = 'upload AEM package to a server without installing it. Default: localhost:4502'
   static args = [
     {name: 'package'},
     {name: 'url'},
